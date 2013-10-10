@@ -1,6 +1,6 @@
 -- | Functions for dealing with lists.
 
-module Data.Lists
+module Lists
   ( -- * Re-exports
    module Data.List
   ,module Data.List.Split
@@ -36,11 +36,11 @@ module Data.Lists
   ,seqList)
   where
 
-import Data.List.Extras hiding (list)
-import Data.Bools
+import Bools
 import Data.List
-import Data.Maybe
+import Data.List.Extras hiding (list)
 import Data.List.Split
+import Data.Maybe
 
 -- | When a list is non-null, pass it to a function, otherwise use the
 -- default.
