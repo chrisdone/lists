@@ -45,7 +45,7 @@ import Data.Maybe
 -- | When a list is non-null, pass it to a function, otherwise use the
 -- default.
 list :: b -> ([a] -> b) -> [a] -> b
-list nil cons = cond (const nil) cons null
+list nil cons = cond (const nil) cons (not . null)
 
 -- | Get the union of the given lists.
 unionOf :: (Eq a) => [[a]] -> [a]
