@@ -1,8 +1,12 @@
 -- | Functions for dealing with lists.
 
 module Data.Lists
-  (-- * List operations
-  list
+  ( -- * Re-exports
+   module Data.List
+  ,module Data.List.Split
+  ,module Data.List.Extras
+  -- * List operations
+  ,list
   ,unionOf
   ,for
   ,lastToMaybe
@@ -30,12 +34,10 @@ module Data.Lists
   ,countElem
   ,elemRIndex
   ,alwaysElemRIndex
-  ,seqList
-  -- * Re-exports
-  ,module Data.List
-  ,module Data.List.Split)
+  ,seqList)
   where
 
+import Data.List.Extras hiding (list)
 import Data.Bools
 import Data.List
 import Data.Maybe
