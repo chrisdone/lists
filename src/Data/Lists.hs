@@ -172,17 +172,7 @@ This could logically be thought of as:
 replace :: Eq a => [a] -> [a] -> [a] -> [a]
 replace old new l = joins new . splitOn old $ l
 
-{- | Given a delimiter and a list of items (or strings), join the items
-by using the delimiter.
-
-Example:
-
-> join "|" ["foo", "bar", "baz"] -> "foo|bar|baz"
--}
-joins :: [a] -> [[a]] -> [a]
-joins delim l = concat (intersperse delim l)
-
-{- | Like 'join', but works with a list of anything showable, converting
+{- | Like 'intercalate', but works with a list of anything showable, converting
 it to a String.
 
 Examples:
