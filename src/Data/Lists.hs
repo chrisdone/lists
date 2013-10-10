@@ -7,6 +7,7 @@ module Data.Lists
   ,lastToMaybe
   ,firstOr
   ,maxList
+  ,powerslice
   ,module Data.List)
   where
 
@@ -41,3 +42,7 @@ firstOr n = fromMaybe n . listToMaybe
 maxList :: (Num t, Ord t) => [t] -> t
 maxList [] = 0
 maxList xs = maximum xs
+
+-- | Essentially a powerset but retaining contiguously ordererd subsets.
+powerslice :: [a] -> [[a]]
+powerslice xs = [] : concatMap (tail . inits) (tails xs)
