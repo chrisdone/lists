@@ -23,7 +23,6 @@ module Data.Lists
   ,valuesAL
   ,breakList
   ,replace
-  ,joins
   ,genericJoin
   ,addToAL
   ,delFromAL
@@ -170,7 +169,7 @@ This could logically be thought of as:
 -}
 
 replace :: Eq a => [a] -> [a] -> [a] -> [a]
-replace old new l = joins new . splitOn old $ l
+replace old new l = intercalate new . splitOn old $ l
 
 {- | Like 'intercalate', but works with a list of anything showable, converting
 it to a String.
@@ -182,7 +181,7 @@ Examples:
 
 -}
 genericJoin :: Show a => String -> [a] -> String
-genericJoin delim l = joins delim (map show l)
+genericJoin delim l = intercalate delim (map show l)
 
 {- | Adds the specified (key, value) pair to the given list, removing any
 existing pair with the same key already present. -}
