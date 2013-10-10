@@ -1,6 +1,6 @@
 -- | Functions for dealing with lists.
 
-module Lists
+module Data.Lists
   ( -- * Re-exports
    module Data.List
   ,module Data.List.Split
@@ -36,7 +36,6 @@ module Lists
   ,seqList)
   where
 
-import Bools
 import Data.List
 import Data.List.Extras hiding (list)
 import Data.List.Split
@@ -45,7 +44,8 @@ import Data.Maybe
 -- | When a list is non-null, pass it to a function, otherwise use the
 -- default.
 list :: b -> ([a] -> b) -> [a] -> b
-list nil cons = cond (const nil) cons (not . null)
+list nil _ []  = nil
+list _ cons xs = cons xs
 
 -- | Get the union of the given lists.
 unionOf :: (Eq a) => [[a]] -> [a]
